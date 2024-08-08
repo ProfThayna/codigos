@@ -6,7 +6,7 @@ from datetime import datetime
 
 
 # Defina sua chave de API e o código do formulário
-api_key = '0930cd99221b6e7303b04a15ef5b46ca'
+api_key = ''
 form_id = '240654602222648'
 
 def get_submissions(form_id, api_key, limit=1000, offset=0):
@@ -65,16 +65,22 @@ campos_relevantes = {
 }
 
 # Extraindo os campos desejados
+# Extraindo os campos desejados
 rows = []
 for submission in submissions:
+    row = {}
+
+    # Adicionando a data de envio
+    row['Submission Date'] = submission.get('created_at', '')
+
     answers = submission.get('answers', {})
     
-    row = {}
     for campo_id, campo_nome in campos_relevantes.items():
+        # Ignorar o campo 'created_at' na iteração dos campos do dicionário
+        if campo_id == 'created_at':
+            continue
+        
         row[campo_nome] = clean_html(answers.get(campo_id, {}).get('answer', ''))
-
-    # Debug: Verificar a linha extraída
-    print(row)
 
     # Aplicar as condições especificadas
     tipo_encontro = row['Selecione o tipo de encontro/ aula prevista']
