@@ -6,7 +6,7 @@ import os
 from datetime import datetime
 
 # Defina sua chave de API e o código do formulário
-api_key = '0930cd99221b6e7303b04a15ef5b46ca'
+api_key = ''
 form_id = '232916171419659'
 
 
