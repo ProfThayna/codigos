@@ -5,7 +5,7 @@ import os
 from datetime import datetime
 
 # Defina sua chave de API e o código do formulário
-api_key = ''
+api_key = '0930cd99221b6e7303b04a15ef5b46ca'
 form_id = '241483484663666'
 
 def get_submissions(form_id, api_key, limit=1000, offset=0):
@@ -113,7 +113,7 @@ colunas_relevantes = ['Submission Date',
 df_new_relevante = df_new[colunas_relevantes]
 
 # Caminho para salvar a nova planilha
-output_file = r"C:\Users\FDR Thay\Downloads\TabelaAcompanhamento1.xlsx"
+output_file = r"C:\Users\thays\Downloads\TabelaAcompanhamento1.xlsx"
 
 
 # Carregar a planilha existente se houver
